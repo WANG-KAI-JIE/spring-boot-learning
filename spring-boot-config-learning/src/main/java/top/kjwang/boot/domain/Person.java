@@ -14,12 +14,13 @@ import java.util.Map;
 
 @Component
 @ConfigurationProperties(prefix = "person")
+//@ConfigurationProperties(prefix = "")注解 批量注入属性值
 @Data
 public class Person {
     private Integer id;
     private String name;
     private List<String> hobby;
     private String[] family;
-    private Map<String,Object> map;
+    private Map map;
     private Pet pet;
 }

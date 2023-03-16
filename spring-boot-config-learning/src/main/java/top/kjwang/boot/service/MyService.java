@@ -5,7 +5,7 @@ package top.kjwang.boot.service;
  * @Date 2023/3/14 15:06
  */
 public class MyService {
-    public void say(){
-        System.out.println("MyService");
-    }
+//    public void say(){
+//        System.out.println("MyService");
+//    }
 }

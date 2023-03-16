@@ -1,21 +1,22 @@
-package top.kjwang.boot.domain;
+package top.kjwang.boot.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import top.kjwang.boot.config.OssConfig;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author kjwang
- * @Date 2023/3/14 14:09z
+ * @Date 2023/3/16 15:39
  */
 
 @SpringBootTest
-class PersonTest {
+class UploadServiceTest {
     @Autowired
-    private Person person;
+    private OssConfig ossConfig;
     @Test
-    void testPerson(){
-        System.out.println(person);
+    void ossUpload() {
     }
 }

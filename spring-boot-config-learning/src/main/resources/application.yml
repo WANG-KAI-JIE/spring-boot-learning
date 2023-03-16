@@ -1,14 +1,41 @@
-person:
-  id: 2
-  name: 张三
-  hobby:
-    - play
-    - read
-    - sleep
-  family: [ father,mother ]
-  map: { k1: v1, k2: v2 }
-  pet: { type: cat, name: tom }
+#person:
+#  id: 2
+#  name: 张三
+#  hobby:
+#    - play
+#    - read
+#    - sleep
+#  family: [ father,mother ]
+#  map: { k1: v1, k2: v2 }
+#  pet: { type: cat, name: tom }
 #  map:
 #    k1: v1
 #    k2: v2
 
+# 指定要激活的profile多环境配置文件
+#spring:
+#  profiles:
+#    active: dev
+#  servlet:
+#    multipart:
+#      max-file-size: 10485760
+#      max-request-size: 10485760
+
+
+
+#server:
+#  port: 8081
+#  address: localhost
+
+#person:
+#  id: 2
+#  name: 张三
+#  hobby: [sing,read,sleep]
+#  family: [father,mother]
+#  map: {k1: v1,k2: v2}
+#  pet: {type: cat,name: tom}
+
+# 指定要激活的profile多环境配置文件
+spring:
+  profiles:
+    active: test
