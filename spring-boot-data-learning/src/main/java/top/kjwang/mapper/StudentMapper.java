@@ -2,6 +2,7 @@ package top.kjwang.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import top.kjwang.domain.Student;
 import org.apache.ibatis.annotations.Param;
 
@@ -60,4 +61,12 @@ public interface StudentMapper {
      */
     @Insert("INSERT INTO t_student (clazz_id,student_name,hometown,birthday) VALUES (#{clazzId}, #{studentName}, #{hometown}, #{birthday})")
     int insert(Student student);
+
+    /**
+     * 修改学生信息
+     * @param student 待修改的学生对象
+     * @return 受影响的记录行数
+     */
+    @Update("UPDATE t_student SET clazz_id = #{clazzId}, student_name = #{studentName},hometown = #{hometown}, birthday = #{birthday} WHERE student_id = #{studentId}")
+    int update(Student student);
 }
