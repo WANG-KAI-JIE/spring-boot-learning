@@ -70,4 +70,10 @@ class StudentMapperTest {
     public void findById(){
         System.out.println(studentMapper.findById(1003));
     }
+
+    @Test
+    public void insert(){
+        Student s1 = Student.builder().clazzId(6).studentName("哦哟哟").hometown("南通").birthday(null).build();
+        System.out.println("新增学生，受影响的行数"+studentMapper.insert(s1));
+    }
 }

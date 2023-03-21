@@ -1,5 +1,6 @@
 package top.kjwang.mapper;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import top.kjwang.domain.Student;
 import org.apache.ibatis.annotations.Param;
@@ -40,7 +41,7 @@ public interface StudentMapper {
     /**
      * 单表查询
      * 根据学生id，查询学生的所有信息（学生id，班级id，学生姓名，家乡，生日）
-     * mqxu提示了一下，说可以用注解写，可以简单点
+     * mqxu提示了一下，说单表的可以用注解写，可以简单点,就不用xml里写语句了
      */
 
     /**
@@ -51,4 +52,12 @@ public interface StudentMapper {
     @Select("SELECT * FROM t_student WHERE student_id = #{studentId}")
     Student findById(int studentId);
 
+    /**
+     * 新增学生
+     *
+     * @param student 学生对象
+     * @return 受影响的记录行数
+     */
+    @Insert("INSERT INTO t_student (clazz_id,student_name,hometown,birthday) VALUES (#{clazzId}, #{studentName}, #{hometown}, #{birthday})")
+    int insert(Student student);
 }
