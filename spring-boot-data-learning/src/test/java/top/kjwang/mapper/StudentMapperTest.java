@@ -1,5 +1,6 @@
 package top.kjwang.mapper;
 
+import lombok.extern.slf4j.Slf4j;
 import top.kjwang.domain.Student;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
@@ -86,5 +87,10 @@ class StudentMapperTest {
     @Test
     public void deleteById(){
         System.out.println("根据id删除学生，受影响的行数"+studentMapper.deleteById(3097));
+    }
+
+    @Test
+    public void getStudent(){
+        studentMapper.getStudent(1);
     }
 }

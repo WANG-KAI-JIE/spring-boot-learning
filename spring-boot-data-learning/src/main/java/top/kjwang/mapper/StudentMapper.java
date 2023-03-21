@@ -74,4 +74,12 @@ public interface StudentMapper {
      */
     @Delete("DELETE FROM t_student WHERE student_id = #{studentId}")
     int deleteById(int studentId);
+
+
+    /**
+     * 根据学生id查询学生信息：关联查询其所属班级信息，所选课程信息
+     * @param studentId 学生id
+     * @return 学生对象
+     */
+    Student getStudent(int studentId);
 }

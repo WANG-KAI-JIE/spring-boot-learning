@@ -10,47 +10,40 @@ import org.springframework.data.domain.Pageable;
 import top.kjwang.domain.Discuss;
 
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.startsWith;
 
-/**
- * @author kjwang
- * @Date 2023/3/20 15:04
- */
 @SpringBootTest
 class DiscussRepositoryTest {
-
     @Resource
     private DiscussRepository discussRepository;
 
+    // 1、使用JpaRepository内部方法进行数据操作
     @Test
-    void findByAuthorNotNull(){
+    public void selectComment() {
+        Optional<Discuss> optional = discussRepository.findById(1);
+        optional.ifPresent(System.out::println);
+    }
+
+    // 2、使用方法名关键字进行数据操作
+    @Test
+    public void selectCommentByKeys() {
         List<Discuss> list = discussRepository.findByAuthorNotNull();
-        list.forEach(System.out::println);
+        System.out.println(list);
     }
 
+    // 3、使用@Query注解进行数据操作
     @Test
-    void findByIdEquals() {
-        List<Discuss> list = discussRepository.findByIdEquals(1);
-        list.forEach(System.out::println);
-    }
-
-    @Test
-    void findByAuthorLike(){
-        List<Discuss> list = discussRepository.findByAuthorEquals("张三");
-        list.forEach(System.out::println);
-    }
-
-    @Test
-    public void selectCommentPaged(){
-        Pageable pageable = PageRequest.of(0,3);
-        List<Discuss> allPaged = discussRepository.getDiscussPage(1,pageable);
+    public void selectCommentPaged() {
+        Pageable pageable = PageRequest.of(0, 3);
+        List<Discuss> allPaged = discussRepository.getDiscussPage(1, pageable);
         System.out.println(allPaged);
     }
 
+    //  4、使用Example封装参数进行数据查询操作
     @Test
-    public void selectCommentByExample(){
+    public void selectCommentByExample() {
         Discuss discuss = new Discuss();
         discuss.setAuthor("张三");
         Example<Discuss> example = Example.of(discuss);
@@ -59,11 +52,11 @@ class DiscussRepositoryTest {
     }
 
     @Test
-    public void selectCommentByExampleMatcher(){
+    public void selectCommentByExampleMatcher() {
         Discuss discuss = new Discuss();
         discuss.setAuthor("张");
-        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("author",startsWith());
-        Example<Discuss> example = Example.of(discuss,matcher);
+        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("author", startsWith());
+        Example<Discuss> example = Example.of(discuss, matcher);
         List<Discuss> list = discussRepository.findAll(example);
         System.out.println(list);
     }

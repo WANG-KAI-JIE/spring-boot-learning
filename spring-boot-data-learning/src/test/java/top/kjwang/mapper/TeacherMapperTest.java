@@ -12,7 +12,7 @@ class TeacherMapperTest {
     private TeacherMapper teacherMapper;
     @Test
     void selectOneByOne() {
-        Teacher teacher=teacherMapper.selectOneByOne(1);
-        System.out.println(teacher);
+        System.out.println(teacherMapper.selectOneByOne(1));
+//        System.out.println(teacher);
     }
 }
