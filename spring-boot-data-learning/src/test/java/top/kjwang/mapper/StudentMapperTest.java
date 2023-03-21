@@ -21,6 +21,7 @@ class StudentMapperTest {
         Student student = studentMapper.selectManyToOne(1001);
         assertEquals("钱智康", student.getStudentName());
         assertEquals(1, student.getClazz().getClazzId());
+        System.out.println(student);
     }
 
     @Test
