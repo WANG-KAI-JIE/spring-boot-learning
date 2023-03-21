@@ -13,4 +13,9 @@ class ClazzMapperTest {
     void selectOneToMany() {
         System.out.println(clazzMapper.selectOneToMany(1));
     }
+
+    @Test
+    void selectAllByClazzId(){
+        System.out.println(clazzMapper.selectAllByClazzId(1));
+    }
 }

@@ -19,4 +19,7 @@
         WHERE c.clazz_id = #{clazzId}
           AND c.clazz_id = s.clazz_id
     </select>
+    <select id="selectAllByClazzId" resultType="top.kjwang.domain.Clazz">
+        SELECT * FROM t_clazz WHERE clazz_id = #{clazzId}
+    </select>
 </mapper>
