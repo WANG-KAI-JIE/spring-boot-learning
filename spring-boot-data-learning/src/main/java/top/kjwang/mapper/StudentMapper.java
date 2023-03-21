@@ -1,10 +1,7 @@
 package top.kjwang.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import top.kjwang.domain.Student;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -69,4 +66,12 @@ public interface StudentMapper {
      */
     @Update("UPDATE t_student SET clazz_id = #{clazzId}, student_name = #{studentName},hometown = #{hometown}, birthday = #{birthday} WHERE student_id = #{studentId}")
     int update(Student student);
+
+    /**
+     * 根据id删除学生
+     * @param studentId
+     * @return 受影响的行数
+     */
+    @Delete("DELETE FROM t_student WHERE student_id = #{studentId}")
+    int deleteById(int studentId);
 }

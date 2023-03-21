@@ -79,8 +79,12 @@ class StudentMapperTest {
 
     @Test
     public void update(){
-
         Student s1 = Student.builder().studentId(3098).clazzId(2).studentName("修改学生").hometown("南京").birthday(null).build();
         System.out.println("修改学生，受影响的行数"+studentMapper.update(s1));
+    }
+
+    @Test
+    public void deleteById(){
+        System.out.println("根据id删除学生，受影响的行数"+studentMapper.deleteById(3097));
     }
 }
