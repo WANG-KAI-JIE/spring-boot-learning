@@ -37,4 +37,22 @@ class StudentMapperTest {
         int count=studentMapper.batchInsert(students);
         System.out.println(count);
     }
+
+    @Test
+    void batchUpdate() {
+        List<Student> students = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            Student student = Student.builder().studentId(3000 + i).clazzId(1).studentName("新名字" + i).hometown("苏州").build();
+            students.add(student);
+        }
+        int count = studentMapper.batchUpdate(students);
+        System.out.println(count);
+    }
+
+    @Test
+    void batchDelete() {
+        List<Integer> idList = List.of(3000,3001,3002,3003);
+        int count = studentMapper.batchDelete(idList);
+        System.out.println(count);
+    }
 }

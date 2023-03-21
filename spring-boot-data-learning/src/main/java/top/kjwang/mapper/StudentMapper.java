@@ -17,4 +17,18 @@ public interface StudentMapper {
      */
     int batchInsert(@Param("students")List<Student> students);
 
+    /**
+     * 批量更新学生信息
+     * @param students
+     * @return
+     */
+    int batchUpdate(@Param("students")List<Student> students);
+
+    /**
+     * 批量删除学生
+     * @param idList 待删除的学生id集合
+     * @return 受影响的记录行数
+     */
+    int batchDelete(@Param("idList") List<Integer> idList);
+
 }

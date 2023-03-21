@@ -21,6 +21,7 @@
           AND s.clazz_id = c.clazz_id
     </select>
 
+<!--批量插入-->
     <insert id="batchInsert" parameterType="Student">
         INSERT INTO t_student
         VALUES
@@ -29,4 +30,35 @@
              #{student.hometown},#{student.birthday})
         </foreach>
     </insert>
+
+<!--批量修改-->
+    <update id="batchUpdate" parameterType="java.util.List">
+        <foreach collection="students" item="student" index="index" open="" close="" separator=";">
+            UPDATE t_student t
+            <set>
+                <if test="student.clazzId != null">
+                    `clazz_id` = #{student.clazzId},
+                </if>
+                <if test="student.studentName != null">
+                    `student_name` = #{student.studentName},
+                </if>
+                <if test="student.hometown != null">
+                    `hometown` = #{student.hometown},
+                </if>
+                <if test="student.birthday != null">
+                    `birthday` = #{student.birthday},
+                </if>
+            </set>
+            WHERE t.student_id = #{student.studentId}
+        </foreach>
+    </update>
+
+<!--  批量删除  -->
+    <delete id="batchDelete" parameterType="int">
+        DELETE FROM t_student
+        WHERE student_id in
+        <foreach collection="idList" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
