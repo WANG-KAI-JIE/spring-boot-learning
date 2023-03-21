@@ -15,6 +15,7 @@
     <description>Spring Boot 学习项目</description>
     <modules>
         <module>spring-boot-config-learning</module>
+        <module>spring-boot-data-learning</module>
     </modules>
 
     <!--    打包类型：pom jar war-->
@@ -25,6 +26,8 @@
         <java.version>17</java.version>
         <lombok.version>1.18.24</lombok.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <mysql.version>8.0.32</mysql.version>
+
     </properties>
 
 <!--    引入全体项目都需要的父依赖，引入后，子项目不需要引入，继承父项目就可以-->
@@ -52,6 +55,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>3.0.4</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
@@ -65,6 +73,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.1.14</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

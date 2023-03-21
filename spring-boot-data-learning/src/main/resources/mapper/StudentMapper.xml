@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kjwang.mapper.StudentMapper">
+    <resultMap id="studentMap" type="Student">
+        <id column="student_id" property="studentId"></id>
+        <result column="student_name" property="studentName"></result>
+        <result column="hometown" property="hometown"></result>
+        <result column="birthday" property="birthday"></result>
+        <association property="clazz" javaType="Clazz">
+            <id column="clazz_id" property="clazzId"></id>
+            <result column="clazz_name" property="clazzName"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectManyToOne" resultMap="studentMap">
+        SELECT s.student_id, s.student_name, s.hometown, s.birthday, c.clazz_id, c.clazz_name
+        FROM t_student s,
+             t_clazz c
+        WHERE s.student_id = #{studentId}
+          AND s.clazz_id = c.clazz_id
+    </select>
+
+    <insert id="batchInsert" parameterType="Student">
+        INSERT INTO t_student
+        VALUES
+        <foreach collection="students" item="student" index="index" separator=",">
+            (#{student.studentId},#{student.clazzId},#{student.studentName},
+             #{student.hometown},#{student.birthday})
+        </foreach>
+    </insert>
+</mapper>

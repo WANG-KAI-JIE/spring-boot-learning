@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="flex flex-row">
+    <div th:each="item:${article}">
+        <div class="flex-column center p-3 card m-3" th:onclick="'javascript:detail('+${item.getId()}+')'">
+            <p th:src="${item.getCover()}" class="cover">
+            <p th:text="${item.getTitle}" style="padding-top: 10px"></p>
+            <p th:text="${item.getContent}"></p>
+            <img src="https://fatcat666.oss-cn-nanjing.aliyuncs.com/image/202303201905036.png">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

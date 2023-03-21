@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kjwang.mapper.ClazzMapper">
+    <resultMap id="clazzMap" type="Clazz">
+        <id column="clazz_id" property="clazzId"></id>
+        <result column="clazz_name" property="clazzName"></result>
+        <collection property="students" ofType="Student">
+            <id column="student_id" property="studentId"></id>
+            <result column="student_name" property="studentName"></result>
+            <result column="hometown" property="hometown"></result>
+        </collection>
+    </resultMap>
+
+    <select id="selectOneToMany" resultMap="clazzMap" parameterType="int">
+        SELECT c.clazz_id, c.clazz_name, s.student_id, s.student_name, s.hometown
+        FROM t_clazz c,
+             t_student s
+        WHERE c.clazz_id = #{clazzId}
+          AND c.clazz_id = s.clazz_id
+    </select>
+</mapper>
