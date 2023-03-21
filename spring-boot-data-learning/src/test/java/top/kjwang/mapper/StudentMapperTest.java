@@ -55,4 +55,13 @@ class StudentMapperTest {
         int count = studentMapper.batchDelete(idList);
         System.out.println(count);
     }
+
+    @Test
+    void dynamicSelect() {
+        Student student = Student.builder().hometown("州").build();
+        List<Student> students = studentMapper.dynamicSelect(student);
+        students.forEach(s -> {
+            System.out.println(s.getClazzId() + ',' +s.getStudentName() + ',' +s.getHometown() + ',' +s.getBirthday());
+        });
+    }
 }

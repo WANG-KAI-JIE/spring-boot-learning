@@ -31,7 +31,8 @@
         </foreach>
     </insert>
 
-<!--批量修改-->
+
+    <!--批量修改-->
     <update id="batchUpdate" parameterType="java.util.List">
         <foreach collection="students" item="student" index="index" open="" close="" separator=";">
             UPDATE t_student t
@@ -61,4 +62,23 @@
             #{id}
         </foreach>
     </delete>
+
+
+<!--动态查询-->
+    <select id="dynamicSelect" parameterType="Student" resultType="Student">
+        SELECT *
+        FROM t_student
+        WHERE 1 = 1
+        <choose>
+            <when test="clazzId != null">
+                AND clazz_id = #{clazzId}
+            </when>
+            <when test="studentName != null">
+                AND student_name = #{studentName}
+            </when>
+            <when test="hometown != null">
+                AND hometown LIKE "%"#{hometown}"%"
+            </when>
+        </choose>
+    </select>
 </mapper>

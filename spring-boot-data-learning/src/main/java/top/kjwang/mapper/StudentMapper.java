@@ -31,4 +31,10 @@ public interface StudentMapper {
      */
     int batchDelete(@Param("idList") List<Integer> idList);
 
+    /**
+     * @param student 查询对象
+     * @return 查询到的学生集合
+     */
+    List<Student> dynamicSelect(Student student);
+
 }
