@@ -64,4 +64,9 @@ class StudentMapperTest {
             System.out.println(s.getClazzId() + ',' +s.getStudentName() + ',' +s.getHometown() + ',' +s.getBirthday());
         });
     }
+
+    @Test
+    public void findById(){
+        System.out.println(studentMapper.findById(1003));
+    }
 }

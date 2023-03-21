@@ -1,5 +1,6 @@
 package top.kjwang.mapper;
 
+import org.apache.ibatis.annotations.Select;
 import top.kjwang.domain.Student;
 import org.apache.ibatis.annotations.Param;
 
@@ -7,7 +8,6 @@ import java.util.List;
 
 public interface StudentMapper {
     /**
-     *
      * @param studentId 学生id
      * @return  学生对象
      */
@@ -36,5 +36,19 @@ public interface StudentMapper {
      * @return 查询到的学生集合
      */
     List<Student> dynamicSelect(Student student);
+
+    /**
+     * 单表查询
+     * 根据学生id，查询学生的所有信息（学生id，班级id，学生姓名，家乡，生日）
+     * mqxu提示了一下，说可以用注解写，可以简单点
+     */
+
+    /**
+     * 根据主键查询学生信息
+     * @param studentId 学生id
+     * @return 学生对象
+     */
+    @Select("SELECT * FROM t_student WHERE student_id = #{studentId}")
+    Student findById(int studentId);
 
 }
