@@ -25,7 +25,7 @@ public class Student {
     private LocalDate birthday;
 
     /**
-     * 在多方中声明一方的对象
+     * 学生和班级多对一
      */
     private Clazz clazz;
 

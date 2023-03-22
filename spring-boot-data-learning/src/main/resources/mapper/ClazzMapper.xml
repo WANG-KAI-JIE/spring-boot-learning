@@ -10,22 +10,28 @@
             <id column="teacher_id" property="teacherId"/>
             <result column="teacher_name" property="teacherName"/>
         </association>
-<!--        <collection property="students" ofType="Student">-->
-<!--            <id column="student_id" property="studentId"></id>-->
-<!--            <result column="student_name" property="studentName"></result>-->
-<!--            <result column="hometown" property="hometown"></result>-->
-<!--        </collection>-->
+        <collection property="students" ofType="Student">
+            <id column="student_id" property="studentId"></id>
+            <result column="student_name" property="studentName"></result>
+            <result column="hometown" property="hometown"></result>
+        </collection>
     </resultMap>
 
     <select id="getClazz" resultMap="clazzMap" parameterType="int">
         SELECT c.clazz_id,
                c.clazz_name,
                t.teacher_id,
-               t.teacher_name
+               t.teacher_name,
+               s.student_id,
+               s.student_name,
+               s.hometown,
+               s.birthday
         FROM t_clazz c,
+             t_student s,
              t_teacher t
         WHERE c.clazz_id = #{clazzId}
-            AND c.teacher_id = t.teacher_id
+          AND c.clazz_id = s.clazz_id
+          AND c.teacher_id = t.teacher_id
     </select>
 
     <select id="selectOneToMany" resultMap="clazzMap" parameterType="int">

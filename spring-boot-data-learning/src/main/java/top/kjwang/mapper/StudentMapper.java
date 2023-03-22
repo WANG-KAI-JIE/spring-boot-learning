@@ -13,6 +13,8 @@ public interface StudentMapper {
     Student selectManyToOne(int studentId);
     /**
      * 批量新增学生
+     * @param students 待新增的学生对象集合
+     * @return 受影响的记录行数
      */
     int batchInsert(@Param("students")List<Student> students);
 
@@ -78,6 +80,7 @@ public interface StudentMapper {
 
     /**
      * 根据学生id查询学生信息：关联查询其所属班级信息，所选课程信息
+     *
      * @param studentId 学生id
      * @return 学生对象
      */

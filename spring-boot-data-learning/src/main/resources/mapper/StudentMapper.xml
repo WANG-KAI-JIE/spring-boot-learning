@@ -2,19 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.kjwang.mapper.StudentMapper">
+    <!--声明关联查询的结果集-->
     <resultMap id="studentMap" type="Student">
-        <id column="student_id" property="studentId"></id>
-        <result column="student_name" property="studentName"></result>
-        <result column="hometown" property="hometown"></result>
-        <result column="birthday" property="birthday"></result>
+        <id column="student_id" property="studentId"/>
+        <result column="clazz_id" property="clazzId"/>
+        <result column="student_name" property="studentName"/>
+        <result column="hometown" property="hometown"/>
+        <result column="birthday" property="birthday"/>
         <association property="clazz" javaType="Clazz">
             <id column="clazz_id" property="clazzId"/>
             <result column="clazz_name" property="clazzName"/>
         </association>
-        <collection property="courses" ofType="Course">
-            <id column="course_id" property="courseId"/>
-            <result column="course_name" property="courseName"/>
-        </collection>
     </resultMap>
 
     <!--    关联查询-->
@@ -25,17 +23,11 @@
                s.hometown,
                s.birthday,
                c.clazz_id,
-               c.clazz_name,
-               cc.course_id,
-               cc.course_name
-       FROM t_student s
-                LEFT JOIN t_clazz c
-                            ON s.clazz_id = c.clazz_id
-                LEFT JOIN t_course_student ts
-                            ON s.student_id = ts.student_id
-                LEFT JOIN t_course cc
-                            ON ts.course_id = cc.course_id
-    WHERE s.student_id = #{studentId}
+               c.clazz_name
+        FROM t_student s
+                 LEFT JOIN t_clazz c
+                           ON s.clazz_id = c.clazz_id
+        WHERE s.student_id = #{studentId}
     </select>
 
     <select id="selectManyToOne" resultMap="studentMap">
@@ -46,7 +38,7 @@
           AND s.clazz_id = c.clazz_id
     </select>
 
-<!--批量插入-->
+<!--批量新增-->
     <insert id="batchInsert" parameterType="Student">
         INSERT INTO t_student
         VALUES

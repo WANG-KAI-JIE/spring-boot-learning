@@ -27,16 +27,16 @@ class StudentMapperTest {
     @Test
     void batchInsert() {
         List<Student> students = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            Student student = Student.builder().studentId(3000 + i)
-                    .clazzId(1).studentName("测试学生" + i)
+        for (int i = 0; i < 20; i++) {
+            Student student = Student.builder().studentId(2000 + i)
+                    .clazzId(1).studentName("测试20条" + i)
                     .hometown("南京")
                     .birthday(LocalDate.of(2003, 10, 11))
                     .build();
             students.add(student);
         }
         int count=studentMapper.batchInsert(students);
-        System.out.println(count);
+        System.out.println("新增学生信息，受影响行数：" + count);
     }
 
     @Test
@@ -96,6 +96,7 @@ class StudentMapperTest {
 
     @Test
     public void getStudent(){
-        studentMapper.getStudent(1);
+        Student student = studentMapper.getStudent(1007);
+        System.out.println(student);
     }
 }
