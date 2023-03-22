@@ -93,4 +93,6 @@ public interface StudentMapper {
     List<Student> getStudentListChoose(Student student);
 
     int createStudentAutoKey(Student student);
+
+    List<Student> getStudentListLikeName(String name);
 }

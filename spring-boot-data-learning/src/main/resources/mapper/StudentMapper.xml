@@ -148,5 +148,10 @@
         VALUES (#{clazzId},#{studentName},#{hometown}, #{birthday})
     </insert>
 
-
+    <!-- 查询学生list，like姓名 -->
+    <select id="getStudentListLikeName" parameterType="Student" resultType="Student">
+        SELECT *
+        FROM t_student s
+        WHERE s.student_name LIKE CONCAT(CONCAT('%', #{studentName}), '%')
+    </select>
 </mapper>

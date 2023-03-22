@@ -137,4 +137,10 @@ class StudentMapperTest {
         studentMapper.createStudentAutoKey(student);
         System.out.println("新增学生ID: " + student.getStudentId());
     }
+
+    @Test
+    void getStudentListLikeName() {
+        List<Student> students = studentMapper.getStudentListLikeName("康");
+        students.forEach(System.out::println);
+    }
 }
