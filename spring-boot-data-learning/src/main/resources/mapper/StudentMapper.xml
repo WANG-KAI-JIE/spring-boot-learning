@@ -233,4 +233,13 @@
         WHERE s.student_id = #{studentId}
     </update>
 
+    <select id="getStudentListByIdsArray" resultType="Student">
+        SELECT *
+        FROM t_student s
+        WHERE s.student_id IN
+        <foreach collection="array" item="studentIds" open="(" separator="," close=")">
+            #{studentIds}
+        </foreach>
+    </select>
+
 </mapper>

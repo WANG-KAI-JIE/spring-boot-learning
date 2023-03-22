@@ -192,4 +192,13 @@ class StudentMapperTest {
         int count = studentMapper.updateStudentIfTrim(student);
         System.out.println(count);
     }
+
+    @Test
+    void getStudentListByIdsArray() {
+        Integer[] ids = new Integer[]{
+                3102, 3103
+        };
+        List<Student> students = studentMapper.getStudentListByIdsArray(ids);
+        students.forEach(System.out::println);
+    }
 }
