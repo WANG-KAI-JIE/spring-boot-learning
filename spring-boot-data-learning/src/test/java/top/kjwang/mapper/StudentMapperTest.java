@@ -125,4 +125,16 @@ class StudentMapperTest {
         List<Student> students = studentMapper.getStudentListChoose(student);
         students.forEach(System.out::println);
     }
+
+    @Test
+    void createStudentAutoKey() {
+        Student student = new Student();
+        student.setStudentName("黎明");
+        student.setClazzId(1);
+        student.setHometown("南京");
+        student.setBirthday(LocalDate.of(2000, 10, 10));
+
+        studentMapper.createStudentAutoKey(student);
+        System.out.println("新增学生ID: " + student.getStudentId());
+    }
 }

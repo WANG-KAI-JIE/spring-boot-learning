@@ -91,4 +91,6 @@ public interface StudentMapper {
     List<Student> queryLike(Student student);
 
     List<Student> getStudentListChoose(Student student);
+
+    int createStudentAutoKey(Student student);
 }

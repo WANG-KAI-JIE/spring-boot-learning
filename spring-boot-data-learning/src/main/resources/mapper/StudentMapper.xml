@@ -142,5 +142,11 @@
         </where>
     </select>
 
+    <!--新增学生，返回自增主键-->
+    <insert id="createStudentAutoKey" parameterType="Student" useGeneratedKeys="true" keyProperty="studentId">
+        INSERT INTO t_student (clazz_id,student_name, hometown,birthday)
+        VALUES (#{clazzId},#{studentName},#{hometown}, #{birthday})
+    </insert>
+
 
 </mapper>
