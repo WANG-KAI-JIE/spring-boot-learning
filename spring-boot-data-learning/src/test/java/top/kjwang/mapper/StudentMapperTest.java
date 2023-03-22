@@ -143,4 +143,23 @@ class StudentMapperTest {
         List<Student> students = studentMapper.getStudentListLikeName("康");
         students.forEach(System.out::println);
     }
+
+    @Test
+    void getStudentListIf(){
+        Student student = Student.builder().clazzId(1).studentName("志康").build();
+        List<Student> students = studentMapper.getStudentListIf(student);
+        students.forEach(System.out::println);
+    }
+
+    @Test
+    void selectTest() {
+        Student student = new Student();
+        student.setClazzId(1);
+        student.setStudentName("");
+        student.setHometown("南京");
+        student.setBirthday(LocalDate.of(2000, 3, 12));
+
+        List<Student> students = studentMapper.getStudentListIf(student);
+        students.forEach(System.out::println);
+    }
 }
