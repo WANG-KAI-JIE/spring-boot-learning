@@ -99,4 +99,11 @@ class StudentMapperTest {
         Student student = studentMapper.getStudent(1007);
         System.out.println(student);
     }
+
+    @Test
+    void queryById() {
+        List<Integer> ids = List.of(1001,1002,1003);
+        List<Student> students = studentMapper.queryByIds(ids);
+        students.forEach(System.out::println);
+    }
 }

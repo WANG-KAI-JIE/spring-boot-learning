@@ -98,6 +98,14 @@
             </when>
         </choose>
     </select>
+<!--    将容器中的元素一个一个拼接到 xml 的方法中，就要使用这个 forEach 标签-->
+    <select id="queryByIds" resultType="Student">
+        SELECT * FROM t_student
+        WHERE student_id in
+        <foreach collection="studentIds" item="studentId" index="index" open="(" separator="," close=")">
+            #{studentId}
+        </foreach>
+    </select>
 
 
 </mapper>

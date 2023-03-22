@@ -85,4 +85,9 @@ public interface StudentMapper {
      * @return 学生对象
      */
     Student getStudent(int studentId);
+
+    /**
+     *
+     */
+    List<Student> queryByIds(List<Integer> studentIds);
 }
