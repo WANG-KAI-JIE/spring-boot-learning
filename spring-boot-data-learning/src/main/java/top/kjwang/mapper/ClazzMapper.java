@@ -17,9 +17,9 @@ public interface ClazzMapper {
     Clazz selectAllByClazzId(int clazzId);
 
     /**
-     *根据班级id查询：关联查询学生信息，所选课程信息
-     * @param clazzId 课程id
-     * @return 选课信息
+     * 关联查询班级信息
+     * @param clazzId 班级id
+     * @return 班课对象
      */
     Clazz getClazz(int clazzId);
 }

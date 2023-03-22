@@ -18,4 +18,12 @@
         WHERE t.teacher_id = #{teacherId}
           AND t.clazz_id = c.clazz_id
     </select>
+
+    <select id="getTeacher" resultMap="teacherMap" parameterType="int">
+        SELECT *
+        FROM t_teacher t,
+             t_clazz c
+        WHERE t.teacher_id = #{teacherId}
+        AND t.clazz_id = c.clazz_id
+    </select>
 </mapper>

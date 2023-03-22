@@ -18,4 +18,9 @@ class ClazzMapperTest {
     void selectAllByClazzId(){
         System.out.println(clazzMapper.selectAllByClazzId(1));
     }
+
+    @Test
+    void getClazz() {
+        System.out.println(clazzMapper.getClazz(1));
+    }
 }

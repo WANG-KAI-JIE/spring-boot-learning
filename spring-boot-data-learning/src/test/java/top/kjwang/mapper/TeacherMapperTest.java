@@ -13,6 +13,11 @@ class TeacherMapperTest {
     @Test
     void selectOneByOne() {
         System.out.println(teacherMapper.selectOneByOne(1));
-//        System.out.println(teacher);
+    }
+
+    @Test
+    void getTeacher(){
+        Teacher teacher = teacherMapper.getTeacher(1);
+        System.out.println(teacher);
     }
 }

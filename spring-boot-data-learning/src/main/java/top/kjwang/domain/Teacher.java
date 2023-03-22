@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 public class Teacher {
     private Integer teacherId;
     private String teacherName;
-    private String clazz;
+    private Integer clazzId;
     /**
      * 教师管理的班级对象：一对一
      */
-    private Integer clazzId;
+    private Clazz clazz;
 }

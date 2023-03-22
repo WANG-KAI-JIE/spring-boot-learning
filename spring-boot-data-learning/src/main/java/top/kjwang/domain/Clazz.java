@@ -25,6 +25,8 @@ public class Clazz {
      * 一方中声明多方的集合
      */
     private List<Student> students;
-    // 新增：教师名字
-    private String teacher;
+    /**
+     * 管理班级的老师：一对一
+     */
+    private Teacher teacher;
 }
