@@ -162,4 +162,13 @@ class StudentMapperTest {
         List<Student> students = studentMapper.getStudentListIf(student);
         students.forEach(System.out::println);
     }
+
+    @Test
+    public void selectTest2() {
+        Student student = new Student();
+        student.setClazzId(1);
+        student.setStudentName(null);
+        List<Student> students = studentMapper.getStudentListIf(student);
+        students.forEach(System.out::println);
+    }
 }
