@@ -97,4 +97,6 @@ public interface StudentMapper {
     List<Student> getStudentListLikeName(String name);
 
     List<Student> getStudentListIf(Student student);
+
+    int updateStudentIfSet(Student student);
 }

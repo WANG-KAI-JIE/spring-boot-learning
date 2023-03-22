@@ -174,4 +174,24 @@
         </if>
     </select>
 
+    <!-- 4 if/set(判断参数) - 将实体类不为空的属性更新 -->
+    <update id="updateStudentIfSet" parameterType="Student">
+        UPDATE t_student s
+        <set>
+            <if test="studentName != null and studentName != '' ">
+                s.student_name = #{studentName},
+            </if>
+            <if test="clazzId != null ">
+                s.clazz_id = #{clazzId},
+            </if>
+            <if test="hometown != null and hometown != '' ">
+                s.hometown = #{hometown},
+            </if>
+            <if test="birthday != null ">
+                s.birthday = #{birthday},
+            </if>
+        </set>
+        WHERE s.student_id = #{studentId};
+    </update>
+
 </mapper>

@@ -171,4 +171,11 @@ class StudentMapperTest {
         List<Student> students = studentMapper.getStudentListIf(student);
         students.forEach(System.out::println);
     }
+
+    @Test
+    void updateStudentIfSet() {
+        Student student = Student.builder().studentId(3102).studentName("新名字").hometown("江苏人").build();
+        int count = studentMapper.updateStudentIfSet(student);
+        System.out.println(count);
+    }
 }
