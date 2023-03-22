@@ -107,5 +107,16 @@
         </foreach>
     </select>
 
+<!--    当我们想要进行条件查询，但是几个条件不是每次都要使用,那么我们就可以通过判断，来觉得是否拼接到SQL 中。-->
+    <select id="queryLike" resultType="Student">
+        SELECT * FROM t_student
+<where>
+    <if test="studentName != null">
+        student_name LIKE concat('%',concat(#{studentName},'%'))
+    </if>
+</where>
+    </select>
+
+
 
 </mapper>

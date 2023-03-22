@@ -106,4 +106,11 @@ class StudentMapperTest {
         List<Student> students = studentMapper.queryByIds(ids);
         students.forEach(System.out::println);
     }
+
+    @Test
+    void queryLike(){
+        Student student = Student.builder().studentName("张智").build();
+        List<Student> students = studentMapper.queryLike(student);
+        students.forEach(System.out::println);
+    }
 }

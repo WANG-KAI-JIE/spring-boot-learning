@@ -86,8 +86,7 @@ public interface StudentMapper {
      */
     Student getStudent(int studentId);
 
-    /**
-     *
-     */
     List<Student> queryByIds(List<Integer> studentIds);
+
+    List<Student> queryLike(Student student);
 }
