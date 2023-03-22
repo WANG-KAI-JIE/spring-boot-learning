@@ -99,4 +99,8 @@ public interface StudentMapper {
     List<Student> getStudentListIf(Student student);
 
     int updateStudentIfSet(Student student);
+
+    List<Student> getStudentListIfTrim(Student student);
+
+    int updateStudentIfTrim(Student student);
 }

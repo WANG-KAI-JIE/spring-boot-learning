@@ -178,4 +178,18 @@ class StudentMapperTest {
         int count = studentMapper.updateStudentIfSet(student);
         System.out.println(count);
     }
+
+    @Test
+    void getStudentListIfTrim() {
+        Student student = Student.builder().clazzId(1).studentName("新").build();
+        List<Student> count = studentMapper.getStudentListIfTrim(student);
+        System.out.println(count);
+    }
+
+    @Test
+    void updateStudentIfTrim() {
+        Student student = Student.builder().studentId(3102).studentName("新").build();
+        int count = studentMapper.updateStudentIfTrim(student);
+        System.out.println(count);
+    }
 }
