@@ -250,4 +250,25 @@
             #{studentIdList}
         </foreach>
     </select>
+
+    <!--定义sql片段-->
+    <sql id="orderAndItem">
+        o.order_id,
+  o.cid,o.address,
+  o.create_date,
+  o.orderitem_id,
+  i.orderitem_id,
+  i.product_id,
+  i.count
+    </sql>
+
+    <select id="findOrderAndItemsByOid" parameterType="String" resultMap="BaseResultMap">
+        SELECT
+        <!--引用sql片段-->
+        <include refid="orderAndItem" />
+        FROM ordertable o
+        JOIN orderitem i
+        ON o.orderitem_id = i.orderitem_id
+        WHERE o.order_id = #{orderId}
+    </select>
 </mapper>
