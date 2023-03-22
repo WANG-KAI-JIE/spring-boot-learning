@@ -105,4 +105,6 @@ public interface StudentMapper {
     int updateStudentIfTrim(Student student);
 
     List<Student> getStudentListByIdsArray(Integer[] studentIds);
+
+    List<Student> getStudentListByIdsList(List<Integer> studentIdList);
 }

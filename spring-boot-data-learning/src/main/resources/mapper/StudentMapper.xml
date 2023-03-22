@@ -242,4 +242,12 @@
         </foreach>
     </select>
 
+    <select id="getStudentListByIdsList" resultType="Student">
+        SELECT *
+        FROM t_student s
+        WHERE s.student_id IN
+        <foreach collection="list" item="studentIdList"  open="(" separator="," close=")">
+            #{studentIdList}
+        </foreach>
+    </select>
 </mapper>

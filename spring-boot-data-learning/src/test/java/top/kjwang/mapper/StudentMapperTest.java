@@ -201,4 +201,11 @@ class StudentMapperTest {
         List<Student> students = studentMapper.getStudentListByIdsArray(ids);
         students.forEach(System.out::println);
     }
+
+    @Test
+    void getStudentListByIdsList() {
+        List<Integer> ids = List.of(1002, 1003);
+        List<Student> students = studentMapper.getStudentListByIdsList(ids);
+        students.forEach(System.out::println);
+    }
 }
