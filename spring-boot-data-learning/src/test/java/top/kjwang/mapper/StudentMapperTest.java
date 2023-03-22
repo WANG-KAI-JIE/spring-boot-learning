@@ -1,6 +1,5 @@
 package top.kjwang.mapper;
 
-import lombok.extern.slf4j.Slf4j;
 import top.kjwang.domain.Student;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
@@ -19,9 +18,9 @@ class StudentMapperTest {
 
     @Test
     void selectManyToOne() {
-        Student student = studentMapper.selectManyToOne(1001);
-        assertEquals("钱智康", student.getStudentName());
-        assertEquals(1, student.getClazz().getClazzId());
+        Student student = studentMapper.selectManyToOne(1006);
+        assertEquals("周志康", student.getStudentName());
+        assertEquals(2, student.getClazz().getClazzId());
         System.out.println(student);
     }
 
@@ -74,19 +73,25 @@ class StudentMapperTest {
 
     @Test
     public void insert(){
-        Student s1 = Student.builder().clazzId(6).studentName("哦哟哟").hometown("南通").birthday(null).build();
-        System.out.println("新增学生，受影响的行数"+studentMapper.insert(s1));
+        Student student = Student.builder().clazzId(6).studentName("哦哟哟").hometown("南通").birthday(LocalDate.of(2023,3 , 8)).build();
+        int count = studentMapper.insert(student);
+        System.out.println("新增学生，受影响的行数："+count);
     }
 
     @Test
     public void update(){
-        Student s1 = Student.builder().studentId(3098).clazzId(2).studentName("修改学生").hometown("南京").birthday(null).build();
-        System.out.println("修改学生，受影响的行数"+studentMapper.update(s1));
+        Student student = studentMapper.findById(1001);
+        System.out.println(student);
+        student.setClazzId(2);
+        student.setStudentName("新名字");
+        int count = studentMapper.update(student);
+        System.out.println("更新学生信息，受影响的行数："+count);
     }
 
     @Test
     public void deleteById(){
-        System.out.println("根据id删除学生，受影响的行数"+studentMapper.deleteById(3097));
+        int count = studentMapper.deleteById(3097);
+        System.out.println("根据id删除学生，受影响的行数；"+count);
     }
 
     @Test

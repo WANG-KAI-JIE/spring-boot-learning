@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date ${DATE} ${TIME}
  */
 @SpringBootApplication
-@MapperScan("top.kjwang.mapper")
+@MapperScan(basePackages = {"top.kjwang.mapper"})
 public class SpringBootDataApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootDataApplication.class,args);

@@ -70,7 +70,7 @@ public interface StudentMapper {
     /**
      * 根据id删除学生
      * @param studentId
-     * @return 受影响的行数
+     * @return 受影响的记录行数
      */
     @Delete("DELETE FROM t_student WHERE student_id = #{studentId}")
     int deleteById(int studentId);
