@@ -118,5 +118,29 @@
     </select>
 
 
+    <!--  choose(判断参数) 按顺序将实体类 Student 第一个不为空的属性作为 where 条件 -->
+    <select id="getStudentListChoose" resultType="Student" parameterType="Student">
+        SELECT *
+        FROM t_student s
+        <where>
+            <choose>
+                <when test="clazzId !=null ">
+                    s.clazz_id = #{clazzId,jdbcType=INTEGER}
+                </when>
+                <when test="studentName !=null and studentName != '' ">
+                    AND s.student_name LIKE CONCAT(CONCAT('%', #{studentName, jdbcType=VARCHAR}),'%')
+                </when>
+                <when test="hometown != null and hometown != '' ">
+                    AND s.hometown LIKE CONCAT(CONCAT('%', #{hometown, jdbcType=VARCHAR}),'%')
+                </when>
+                <when test="birthday != null ">
+                    AND s.birthday = #{birthday, jdbcType=DATE}
+                </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
 
 </mapper>

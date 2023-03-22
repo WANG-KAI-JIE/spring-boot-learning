@@ -89,4 +89,6 @@ public interface StudentMapper {
     List<Student> queryByIds(List<Integer> studentIds);
 
     List<Student> queryLike(Student student);
+
+    List<Student> getStudentListChoose(Student student);
 }

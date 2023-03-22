@@ -113,4 +113,16 @@ class StudentMapperTest {
         List<Student> students = studentMapper.queryLike(student);
         students.forEach(System.out::println);
     }
+
+    @Test
+    void getStudentListChoose(){
+        // 按照clazzId精确查
+//        Student student = Student.builder().clazzId(2).build();
+        // 按照姓名模糊查
+//        Student student = Student.builder().studentName("张智").build();
+        // 按照籍贯模糊查
+        Student student = Student.builder().hometown("州").build();
+        List<Student> students = studentMapper.getStudentListChoose(student);
+        students.forEach(System.out::println);
+    }
 }
