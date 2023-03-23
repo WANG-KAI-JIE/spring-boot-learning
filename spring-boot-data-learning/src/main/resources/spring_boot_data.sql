@@ -11,7 +11,7 @@
  Target Server Version : 80032
  File Encoding         : 65001
 
- Date: 21/03/2023 15:59:53
+ Date: 23/03/2023 08:29:26
 */
 
 SET NAMES utf8mb4;
@@ -102,6 +102,40 @@ INSERT INTO `t_course` (`course_id`, `course_name`) VALUES (20002, '前端⼯程
 COMMIT;
 
 -- ----------------------------
+-- Table structure for t_course_student
+-- ----------------------------
+DROP TABLE IF EXISTS `t_course_student`;
+CREATE TABLE `t_course_student` (
+  `id` int NOT NULL,
+  `course_id` int DEFAULT NULL COMMENT '课程id',
+  `student_id` int DEFAULT NULL COMMENT '学生id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of t_course_student
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (1, 20001, 1001);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (2, 20001, 1002);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (3, 20001, 1003);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (4, 20001, 1004);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (5, 20001, 1005);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (6, 20001, 1006);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (7, 20001, 1007);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (8, 20001, 1008);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (9, 20001, 1009);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (10, 20002, 1001);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (11, 20002, 1002);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (12, 20002, 1003);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (13, 20002, 1004);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (14, 20002, 1005);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (15, 20002, 1006);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (16, 20002, 1007);
+INSERT INTO `t_course_student` (`id`, `course_id`, `student_id`) VALUES (17, 20002, 1008);
+COMMIT;
+
+-- ----------------------------
 -- Table structure for t_student
 -- ----------------------------
 DROP TABLE IF EXISTS `t_student`;
@@ -112,13 +146,13 @@ CREATE TABLE `t_student` (
   `hometown` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '学⽣籍贯',
   `birthday` date DEFAULT NULL COMMENT '出⽣⽇期',
   PRIMARY KEY (`student_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of t_student
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1001, 1, '钱智康', '江苏苏州', '2000-01-18');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1001, 2, '新名字', '江苏苏州', '2000-01-18');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1002, 1, '李智康', '江苏⽆锡', '2000-02-18');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1003, 1, '张智康', '江苏常州', '2000-03-18');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1004, 1, '王智康', '江苏南京', '2000-04-18');
@@ -126,6 +160,26 @@ INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1006, 2, '周志康', '江苏泰州', '2001-06-18');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1007, 2, '郭志康', '江苏扬州', '2001-07-18');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (1008, 2, '陈志康', '江苏盐城', '2001-08-18');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2000, 1, '测试20条0', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2001, 1, '测试20条1', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2002, 1, '测试20条2', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2003, 1, '测试20条3', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2004, 1, '测试20条4', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2005, 1, '测试20条5', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2006, 1, '测试20条6', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2007, 1, '测试20条7', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2008, 1, '测试20条8', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2009, 1, '测试20条9', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2010, 1, '测试20条10', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2011, 1, '测试20条11', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2012, 1, '测试20条12', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2013, 1, '测试20条13', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2014, 1, '测试20条14', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2015, 1, '测试20条15', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2016, 1, '测试20条16', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2017, 1, '测试20条17', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2018, 1, '测试20条18', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (2019, 1, '测试20条19', '南京', '2003-10-11');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3004, 1, '新名字4', '苏州', '2003-10-11');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3005, 1, '新名字5', '苏州', '2003-10-11');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3006, 1, '新名字6', '苏州', '2003-10-11');
@@ -219,9 +273,15 @@ INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3094, 1, '测试学生94', '南京', '2003-10-11');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3095, 1, '测试学生95', '南京', '2003-10-11');
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3096, 1, '测试学生96', '南京', '2003-10-11');
-INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3097, 1, '测试学生97', '南京', '2003-10-11');
-INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3098, 1, '测试学生98', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3098, 2, '修改学生', '南京', NULL);
 INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3099, 1, '测试学生99', '南京', '2003-10-11');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3100, 6, '肥猫猫', '南通', NULL);
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3101, 6, '哦哟哟', '南通', NULL);
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3103, 6, '哦哟哟', '南通', NULL);
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3104, 6, '哦哟哟', '南通', '2023-03-08');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3105, 1, '黎明', '南京', '2000-10-10');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3106, 1, '黎明', '南京', '2000-10-10');
+INSERT INTO `t_student` (`student_id`, `clazz_id`, `student_name`, `hometown`, `birthday`) VALUES (3107, 1, '黎明', '南京', '2000-10-10');
 COMMIT;
 
 -- ----------------------------
