@@ -1,0 +1,6 @@
+server:
+  port: 9090
+
+context:
+listener:
+  classes: com.kjwang.listener.MyListener3

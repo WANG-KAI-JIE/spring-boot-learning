@@ -1,0 +1,12 @@
+body{
+    background: black;
+    background-image: url("/static/images/bg.jpg");
+}
+h1{
+    color: red;
+    background-color: aqua;
+}
+h2{
+    color: blue;
+    background-color:fuchsia;
+}
