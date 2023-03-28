@@ -18,6 +18,7 @@
         <module>spring-boot-data-learning</module>
         <module>spring-boot-mybatis-plus</module>
         <module>spring-boot-filter-interceptor</module>
+        <module>spring-boot-global-exception-learning</module>
     </modules>
 
     <!--    打包类型：pom jar war-->

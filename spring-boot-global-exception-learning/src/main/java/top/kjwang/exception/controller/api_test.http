@@ -1,0 +1,13 @@
+GET http://localhost:8080/api/articles/9999999
+Accept: application/json
+
+###
+GET http://localhost:8080/api/articles/-1
+Accept: application/json
+
+###
+GET http://localhost:8080/api/articles/1
+Accept: application/json
+
+###
+http://localhost:8080/check?age=20&username=admin&password=123
