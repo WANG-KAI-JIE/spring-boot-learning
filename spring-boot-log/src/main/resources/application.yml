@@ -1,0 +1,10 @@
+logging:
+  level:
+    root: info
+    top.kjwang.log.controller: debug
+  file:
+    path: /Users/wangkaijie/Desktop/logs
+    name:  /Users/wangkaijie/Desktop/logs/boot.log
+  pattern:
+    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'

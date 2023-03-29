@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <properties>
+        <!--日志输出位置-->
+        <property name="LOG_HOME">/Users/wangkaijie/Desktop</property>
+    </properties>
+    <Appenders>
+        <!-- 将日志输出到文件-->
+        <RollingFile name="ACCESS-APPENDER"
+                     fileName="${LOG_HOME}/access.log"
+                     filePattern="${LOG_HOME}/access-%d{yyyy-MM-dd}-%i.log">
+            <!--设置日志格式-->
+            <PatternLayout>
+                <pattern>[%d][%p][%t][%C] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- 设置日志文件切分参数 -->
+                <SizeBasedTriggeringPolicy size="100MB"/>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <!--设置最大存档数-->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name="ACCESS-LOG" level="debug" additivity="false">
+            <AppenderRef ref="ACCESS-APPENDER" level="info"/>
+        </AsyncLogger>
+    </Loggers>
+</configuration>
