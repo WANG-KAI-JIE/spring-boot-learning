@@ -1,125 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>top.kjwang</groupId>
+    <artifactId>spring-boot-learning</artifactId>
+    <description>Spring Boot 学习项目</description>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--Package 常用类型 pom，jar，war-->
+    <!--pom 只提供依赖-->
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>spring-boot-mybatis-plus</module>
+        <module>spring-boot-config-learning</module>
+        <module>spring-boot-data-learning</module>
+        <module>spring-boot-filter-interceptor</module>
+        <module>spring-boot-global-exception-learning</module>
+        <module>spring-boot-task-learning</module>
+        <module>spring-boot-log</module>
+        <module>spring-boot-file-learning</module>
+    </modules>
+
+    <!--定义版本号等信息-->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>3.0.4</spring.version>
+        <hutool.version>5.8.15</hutool.version>
+        <fastjson.version>2.0.15</fastjson.version>
+        <aliyun.sdk.version>4.6.3</aliyun.sdk.version>
+        <aliyun.oss.version>3.16.1</aliyun.oss.version>
+        <mysql.version>8.0.32</mysql.version>
+        <mybatis.version>3.0.1</mybatis.version>
+        <hibernate-validator.version>8.0.0.Final</hibernate-validator.version>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.4</version>
         <relativePath/>
     </parent>
-    <groupId>top.kjwang</groupId>
-    <artifactId>spring-boot-learning</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>boot-learning</name>
-    <description>Spring Boot 学习项目</description>
-    <modules>
-        <module>spring-boot-config-learning</module>
-        <module>spring-boot-data-learning</module>
-        <module>spring-boot-mybatis-plus</module>
-        <module>spring-boot-filter-interceptor</module>
-        <module>spring-boot-global-exception-learning</module>
-        <module>spring-boot-log</module>
-    </modules>
 
-    <!--    打包类型：pom jar war-->
-    <packaging>pom</packaging>
-
-<!--    定义字符集、版本号-->
-    <properties>
-        <java.version>17</java.version>
-        <lombok.version>1.18.20</lombok.version>
-        <fastjson.version>1.2.83</fastjson.version>
-        <mysql.version>8.0.32</mysql.version>
-        <mybatis-starter.version>3.0.1</mybatis-starter.version>
-        <druid.version>1.2.16</druid.version>
-    </properties>
-
-    <!-- 引入全体项目都需要的父依赖，引入后，子项目不需要引入，继承父项目就可以 -->
+    <!--dependencies 引入全体项目都需要的父依赖，引入后，子项目不需要引入-->
     <dependencies>
-
+        <!--lombok-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <!--排除 logback-->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
-
+        <!--spring相关-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--排除 logback-->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-
-        <!--引入 log4j 2-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+        <!--工具包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
     </dependencies>
 
-    <!-- 全局管理依赖,并不会引入具体依赖 -->
-    <!-- 只是依赖的声明，并不实现引入，因此子项目需要显式声明需要用的依赖，这样做的好处是可以方便进行版本控制 -->
+    <!--dependencyManagement 只是依赖版本声明，并不实现引入，子项目按需引入-->
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
-
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-starter.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <version>${mybatis.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
