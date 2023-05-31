@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: server-push
+  boot:
+    admin:
+      client:
+        url: http://localhost:8989
+management:
+  endpoint:
+    health:
+      show-details: always
+    auditevents:
+      web:
+        exposure:
+          include: '*'
+      enabled: true
+
+server:
+  port: 8001

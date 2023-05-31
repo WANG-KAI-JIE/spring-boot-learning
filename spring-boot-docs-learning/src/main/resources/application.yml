@@ -1,0 +1,18 @@
+#springdoc:
+#  packages-to-scan: top.kjwang.docs.controller
+
+# springdoc-openapi项目配置
+springdoc:
+
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+  api-docs:
+    path: /v3/api-docs
+
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: kjwang.docs.controller

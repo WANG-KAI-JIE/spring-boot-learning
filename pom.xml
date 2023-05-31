@@ -22,6 +22,12 @@
         <module>spring-boot-task-learning</module>
         <module>spring-boot-log</module>
         <module>spring-boot-file-learning</module>
+        <module>spring-boot-cache-learning</module>
+        <module>spring-boot-server-push</module>
+        <module>spring-boot-mail-learning</module>
+        <module>spring-boot-actuator-learning</module>
+        <module>spring-boot-admin-server</module>
+        <module>spring-boot-docs-learning</module>
     </modules>
 
     <!--定义版本号等信息-->
